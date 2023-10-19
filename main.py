@@ -56,7 +56,7 @@ def save_index(index: VectorStoreIndex) -> None:
     :param index: index to save
     :return: None
     """
-    index.storage_context.persist(persist_dir='storage')
+    index.storage_context.persist(persist_dir="storage")
 
 
 def load_index() -> BaseIndex:
@@ -64,9 +64,10 @@ def load_index() -> BaseIndex:
     Loads the index from storage
     :return: BaseIndex
     """
-    storage_context = StorageContext.from_defaults(persist_dir='storage')
+    storage_context = StorageContext.from_defaults(persist_dir="storage")
     index = load_index_from_storage(storage_context)
     return index
+
 
 def load_gpt4(temperature) -> ServiceContext:
     """
@@ -76,6 +77,7 @@ def load_gpt4(temperature) -> ServiceContext:
     llm = OpenAI(temperature=temperature, model="gpt-4")
     service_context = ServiceContext.from_defaults(llm=llm)
     return service_context
+
 
 def load_gpt3_5(temperature) -> ServiceContext:
     """
@@ -99,10 +101,12 @@ def main():
         if gpt4:
             service_context = load_gpt4(temperature)
         else:
-            service_context = load_gpt3_5(temperature) # Load gpt-3.5-turbo
+            service_context = load_gpt3_5(temperature)  # Load gpt-3.5-turbo
 
         # Create the index
-        index = VectorStoreIndex.from_documents(documents, service_context=service_context)
+        index = VectorStoreIndex.from_documents(
+            documents, service_context=service_context
+        )
         # Save the index for later use.
         save_index(index)
         save_current_data_directory()
@@ -121,7 +125,7 @@ def main():
     root.mainloop()
 
 
-if __name__ == '__main__':
-    print('Starting...')
+if __name__ == "__main__":
+    print("Starting...")
     main()
-    print('Done')
+    print("Done")
