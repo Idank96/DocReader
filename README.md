@@ -1,5 +1,5 @@
-# LlamaDocReader
-LlamaDocReader is a Python script that uses GPT to help you communicate with your txt/pdf files.
+# DocReader
+DocReader is a Python script that uses GPT to help you communicate with your txt, pdf, code files and more.
 
 ## Options
 You can use either OpenAI API with gpt-3.5-turbo or gpt-4. 
@@ -15,7 +15,7 @@ For shorter answers, set 'similarity_top_k' to lower value in this line:
 * OpenAI API key:
 1. Create openai api key in https://beta.openai.com/. 
 2. Create a .txt file and copy your openai api key and save it as `openai_api_key.txt`. 
-3. Replace `path_to_key` in connect_to_openai function with the path to your `openai_api_key.txt` file.__
+3. Replace `path_to_key` in connect_to_openai function with the path to your `openai_api_key.txt` file.
 
 
 ##  Usage
